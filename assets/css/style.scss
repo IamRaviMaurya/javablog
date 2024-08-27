@@ -116,7 +116,3 @@ body {
     line-height: 1.3;
   }
 }
-
-@use 'sass:math';
-
-margin-top: math.div($hamburger-margin-top, 2);
