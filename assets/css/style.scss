@@ -133,3 +133,43 @@ pre code {
   display: block;
   font-weight: bold;
 }
+
+.header {
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000; /* Ensures the header stays on top of other content */
+  background-color: #fff; /* Background color to ensure the content below doesn't show through */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for visual separation */
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.logo, .logo-mobile {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.logo img, .logo-mobile img {
+  max-height: 70px; /* Adjust based on your design */
+}
+
+.logo-mobile {
+  display: none;
+}
+
+/* Show mobile logo only on small screens */
+@media (max-width: 768px) {
+  .logo {
+    display: none;
+  }
+
+  .logo-mobile {
+    display: inline-block;
+  }
+}
