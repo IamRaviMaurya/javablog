@@ -3,7 +3,7 @@ permalink: pretty
 title: 'Java Blog'
 
 logo:
-  mobile: "images/logo/logo-mobile.svg"
+  mobile: "images/logo/java-svgrepo-com.svg"
   mobile_height: "32px"
   mobile_width: "32px"
   desktop: "images/logo/java-blog.svg"
