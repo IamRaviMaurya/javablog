@@ -173,3 +173,26 @@ pre code {
     display: inline-block;
   }
 }
+
+/* Default Table Styling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-size: 16px;
+  text-align: left;
+}
+
+th, td {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+}
+
+th {
+  background-color: #ec5d5d;
+  color: black;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
