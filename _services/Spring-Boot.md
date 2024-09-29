@@ -1,6 +1,6 @@
 ---
 title: "Spring Boot"
-date: 2019-06-16T12:33:46+10:00
+date: 2019-06-16
 weight: 2
 ---
 

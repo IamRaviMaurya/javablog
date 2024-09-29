@@ -1,200 +1,101 @@
 ---
 title: "Java OOPs"
-date: 2019-06-16T12:33:46+10:00
+date: 2019-06-16
 weight: 1
 ---
 
-Spring Boot is an extension of the Spring Framework that simplify the setup and development of new spring application
+Object-oriented programming (OOP) is a way of writing code in Java that uses objects and classes to design and develop software. It's based on the idea that objects are the core building blocks of a program, and that they have properties and behaviors similar to things in the real world.
 
-![Accounting Services](/images/springboot/spring-boot.png)
+![Accounting Services](/images/oops/oops.png)
 
-- A convention -over -configuration approach to avoid boilerplate code.
-- Embedded server like Tomcat, Jetty or Undertow  to run application without needing a separate sever installation.
-- Auto configuration to automatically configuring spring application based on dependency present in the class path.
-- Reduce the configuration time and efforts in contacts, in traditional spring boot require extensive configuration either XML or Annotations. 
+- Classes: These are user-defined data types that act as blueprints for objects, attributes, and methods.
+- Objects: These are instances of a class that are created with specific data.
+- Methods: These are functions that objects can perform.
+- Attributes: These represent the state of an object.
 
-# How We create spring boot application ?
+# In a Java program how many Java classes can we take?
 
-- Spring initializer  web based.
-- Manually by setting up Gradle or Maven dependencies.
-- Using IDEs like IntelliJ and Eclipse have build in spring project.
-
-
-# What is purpose of '@SpringBootApplication' annotation ?
-
-'@SpringBootApplication' is a key annotation in a spring boot that signify simplify the configuration and setup of spring application by combining several important annotation into one. It allow to quickly and minimal configuration to casing the logic rather than setup.
-
-### '@SpringBootApplication' is equivalent to 3 annotation.
-
-1. @ComponentScan
-2. @Configuration
-3. @EnableAutoConfiguration
-
-- **@ComponentScan**
-  - With Spring, we use the @ComponentScan annotation along with the @Configuration annotation to specify the packages that we want to be scanned. @ComponentScan without arguments tells Spring to scan the current package and all of its sub-packages.
-
-- **@Configuration**
-  - @Configuration annotation which indicates that the class has @Bean definition methods. So Spring container can process the class and generate Spring Beans to be used in the application.
-
-- **@EnableAutoConfiguration**
-  - It enable Spring Boot auto-configuration to automatically configure your Spring Application based on their jar dependencies you added.
-
-# What is IoC container ?
-
-IoC(Inversion of Control) container is fundamental concept of Spring Framework, which is responsible for managing the life cycle.
-
-The IoC container make use of dependency injection to mange component and their dependencies.
-
-### Key responsiblility of the IoC container
-
-1. **Bean Creation :** Container initiate bean which are define in the configuration.
-2. **Dependency Injection :** The container inject necessary dependency into bean, either view constructor injection, setter injection or field injection.
-3. **Lifecycle Management :** The container mange lifecycle of bean, including initializer and distraction.
-4. **Configuration Management :** The container read the configuration metadata to understand how to initiate, configure and assemble the bean.
-
-# What is @Bean?
-
-Bean is object that manged by IoC container. @Bean annotation is spring annotation in Spring Framework is used to declare a method as a bean provider, meaning that the method's return value will be registered as a Spring bean within the application context. This is typically used in configuration classes (classes annotated with @Configuration), where you define beans that are managed by the Spring container.
-
-### Lifecycle of a @Bean:
-
-1. **Instantiation :** 
-  - When the Spring container is started, it processes configuration classes and invokes methods annotated with @Bean to instantiate and configure the beans.
-2. **Dependency Injection :**
-  - After the bean is created and dependencies are injected, the bean can undergo additional initialization. If the bean implements InitializingBean or has a custom initialization method specified by @Bean(initMethod = "methodName"), that method is called.
-3. **Usage :**
-  - The bean is now fully initialized and ready to be used by other beans or components in the application. It can be injected into other beans using @Autowired, @Inject, or constructor injection.
-4. **Destruction :**
-  - When the application context is being shut down, the Spring container will call the bean's destroy method, if defined. This can be done by implementing DisposableBean or specifying a custom destroy method using @Bean(destroyMethod = "methodName").
+- In the Java program, we can take N number of classes.
 
 ### Example
 
-Using '@Configuration'
+File Name 'Test.java'
+
 ```java
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-
 @Configuration
-public class AppConfig {
+class A{
+}
+class B{
+}
+class C{
+}
+class D{
+}
+```
 
-    @Bean
-    public MyService myService() {
-        return new MyServiceImpl();
+For the above classes we can save in a single program and we can also save files under whatever name we want. When we compile the code then we get whatever name we have taken for the class for those only bytecode will be generated for the above example if we compile code **javac Test.java** then we get 4 different bytecode class names. 
+**A.class**, **B.class**, **C.class**, and **D.class**.
+
+# What is a public keyword in Java?
+
+- In Java 'public' keyword is the access modifier. Access modifier mean visibility and accessibility of the class or its members.
+- Public class is visible for all other classes. If a class is declared public, all other classes interact with it no matter where they are located within the project.
+
+- Only one public class is allowed per file.
+  - A single Java file can contain multiple classes, but only one of them can be public.
+- The file name must match the public class name.
+  - The name of the Java file must exactly match the name of the public class. This means the file should be saved as ClassName.java if the class is declared as public class ClassName.
+- If the file name does not match the public class name, the compiler will give an error.
+  - The Java compiler (javac) will expect the file to be named after the public class. If the file name is different, it will throw a compilation error.
+
+# What is the fully qualified name?
+
+A fully qualified name consists package name followed by the class name. It is used to avoid name conflict and access classes without import.
+
+### Example
+
+```java
+com. example.utl.List customList = new com. example.utl.List();
+java.util.List<String> javaList = new java.util.List<>();
+```
+
+It helps avoid name conflicts when two classes have the same name but belong to different packages.
+
+# What is an import keyword and how many types of import?
+
+A import keyword is used to bring a certain class or entire package into visibility for use in our Java program. By using import we can refer there simple names instead of using fully qualified names.
+
+## There are main two type of import
+
+- **Explicit import(Single Type Import):**- Its import class name from package without need to fully qualified name.
+
+```java
+import java.util.List;  
+```
+
+- **Implicit import or wild card import or on-demand impor**t:- It imports all public classes for specific packages and does not import sub-packages and it does not import nonclass members like static fields or methods
+
+```java
+import java.util.*;
+```
+
+## A special type of import
+
+- **Static Import**:- This imports static members (methods and fields) from a class, allowing them to use the class name.
+
+```java
+import static java.lang.Math.PI;
+import static java.lang.Math.*;
+public class Example {
+    public static void main(String[] args) {
+        System.out.println(PI);
+        System.out.println(sqrt(16));
     }
 }
+// Using PI directly without Math.PI
+// Using sqrt directly without Math.sqrt 
 ```
 
-Using @Component
-```java
-import org.springframework.stereotype.Component;
+If we are using the same package class we don't need the required import statement also java.long package does not need to require import by default it's imported.
 
-@Component
-public class MyBean {
-    // Bean logic
-}
-```
-
-In this example, myService will be a Spring-managed bean in the application context. The AppConfig class is a configuration class where MyService is defined as a bean.
-
-This lifecycle management ensures that beans are created, initialized, and destroyed in a controlled and predictable way, allowing for complex dependencies and resource management in Spring applications.
-
-#  What are types of annotation in Spring Boot ?
-1. **Core Annotations**
-- ___@SpringBootApplication___:
-  - Combines @SpringBootConfiguration, @EnableAutoConfiguration, and @ComponentScan into a single annotation. It is usually placed on the main application class to enable Spring Boot’s auto-configuration and component scanning.
-- ___@Configuration___:
-  - Indicates that a class can be used by the Spring IoC container as a source of bean definitions.
-- ___@Bean___:
-  - Indicates that a method produces a bean to be managed by the Spring container.
-
-2. **StereoType Annotations**  
-- ___@Component___:
-  - A generic stereotype for any Spring-managed component. It can be used to annotate classes that need to be managed by Spring.
-- ___@Service___:
-  - A specialized version of @Component, it indicates that an annotated class is a service, which holds business logic.
-- ___@Repository___:
-  - A specialization of @Component that indicates a Data Access Object (DAO). It also enables automatic exception translation in Spring.
-- ___@Controller___:
-  - A specialization of @Component used to define a Spring MVC controller.
-- ___@RestController___:
-  - A combination of @Controller and @ResponseBody, it is used to create RESTful web services. The methods in a @RestController return domain objects instead of views.
-
-3. **Dependency Injection Annotations**
-- ___@Autowired___:
-  - Marks a constructor, field, setter method, or configuration method to be autowired by Spring’s dependency injection facilities.
-- ___@Qualifier___:
-  - Used along with @Autowired to specify which bean should be injected when there are multiple candidates.
-- ___@Primary___:
-  - Indicates that a particular bean should be given preference when multiple beans qualify for autowiring.
-- ___@Value___:
-  - Used to inject values from properties files, environment variables, or system properties into beans.
-
-4. **Configuration and Conditional Annotations**
-- ___@PropertySource___:
-  - Used to specify the location of properties files that Spring should load.
-- ___@EnableAutoConfiguration___:
-  - Enables Spring Boot’s auto-configuration mechanism, which attempts to automatically configure your Spring application based on the jar dependencies you have added.
-- ___@Conditional___:
-  - Used to conditionally include a bean or configuration based on certain criteria.
-
-5. **Spring MVC and REST Annotations**
-- ___@RequestMapping___:
-  - Used to map HTTP requests to handler methods of MVC and REST controllers.
-- ___@GetMapping, @PostMapping, @PutMapping, @DeleteMapping, @PatchMapping___:
-  - Variants of @RequestMapping that are specialized for HTTP GET, POST, PUT, DELETE, and PATCH requests.
-- ___@PathVariable___:
-  - Used to extract values from the URI path.
-- ___@RequestParam___:
-  - Used to extract query parameters from the URL.
-- ___@RequestBody___:
-  - Indicates that a method parameter should be bound to the body of the HTTP request.
-- ___@ResponseBody___:
-  - Indicates that the return value of a method should be used as the response body, instead of a view.
-
-Difference Between **@RequestMapping** and **@GeMapping**
-
-| @RequestMapping | @GeMapping   |
-| ----------- | --------- |
-|**General Purpose**: Can map to any HTTP method (GET, POST, PUT, DELETE, etc.) by specifying the method attribute.|**Specialized**: Specifically maps to HTTP GET requests only.  |
-|**Flexible**: Allows mapping URLs to controller methods with various HTTP methods using attributes like method, params, headers, etc. |**Simplified**: A shorthand for @RequestMapping with method = RequestMethod.GET, used when only GET requests need to be handled.|
-|**Usage**: @RequestMapping("/path") can handle multiple HTTP methods if no specific method is defined.|**Usage**: @GetMapping("/path") is used for GET requests, making the code more readable when only GET is required.|
-|**Introduced in**: Available since Spring 2.5, providing a general mechanism to map URLs to controller methods.|**Introduced in**: Introduced in Spring 4.3 to provide a more concise and clearer way to handle GET requests.|
-|**Example**: ``@RequestMapping(value = "/example", method = RequestMethod.GET)``| **Example**: ``@GetMapping("/example")``|
-
-Difference between **@GetMapping** and **@PostMapping**:
-
-| @GetMapping | @PostMapping   |
-| ----------- | --------- |
-|**Purpose:** Used to map HTTP GET requests to a specific handler method. GET requests are typically used to retrieve data from the server without modifying it.|**Purpose:** Used to map HTTP POST requests to a specific handler method. POST requests are typically used to submit data to the server, often resulting in a change in state or side effects on the server.|
-|**Usage**: Commonly used for fetching data, such as displaying a web page, retrieving data from an API, or loading resources.|**Usage**: Commonly used for sending data to the server, such as submitting form data, uploading a file, or creating a new resource.|
-|**Idempotent**: GET requests are idempotent, meaning that making the same request multiple times will have the same effect as making it once.|**Non-Idempotent**: POST requests are generally non-idempotent, meaning that making the same request multiple times can have different effects (e.g., creating multiple records).|
-|**Example**: @GetMapping("/example")|**Example**: @PostMapping("/example")|
-|**Cacheable**: GET requests are usually cacheable by browsers and intermediate caches.|**Not Cacheable**: POST requests are generally not cacheable, as they are intended to change the server's state.|
-|**Parameter Passing**: Parameters are typically passed via the URL query string (e.g., /example?id=1).|**Parameter Passing**: Parameters are typically passed in the body of the request (e.g., form data, JSON).|
-|**Security**: Since parameters are passed in the URL, they are visible in browser history, bookmarks, and logs.|**Security**: Parameters are passed in the request body, making them less visible in logs and URLs, though they still need to be secured appropriately.|
-
->In summary, @GetMapping is used for retrieving data and handling requests where the server's state is not altered, while @PostMapping is used for sending data to the server, typically to create or update resources.
-
-Difference between **@PutMapping** and **@PatchMapping**:
-
-| @PutMapping | @PatchMapping   |
-| ----------- | --------- |
-|**Purpose**: Used to map HTTP PUT requests to a specific handler method. PUT requests are typically used to update an existing resource with a full update (i.e., replacing the entire resource).|**Purpose**: Used to map HTTP PATCH requests to a specific handler method PATCH requests are typically used to make partial updates to an existing resource (i.e., updating only certain fields).|
-|**Idempotent**: PUT requests are idempotent, meaning that making the same request multiple times will have the same effect as making it once. If the same data is sent multiple times, the resource will remain unchanged after the first successful update.|**Non-Idempotent**: PATCH requests can be idempotent or non-idempotent, depending on how the server processes the request. However, PATCH is generally used for making partial changes, so it may not be idempotent in all cases.|
-|**Usage**: Commonly used for updating a complete resource. If a resource does not exist, some implementations may create it (though this is not universally agreed upon).|**Usage**: Commonly used for applying partial updates to a resource, where only specific fields are modified, leaving the rest of the resource unchanged.|
-|**Example**: @PutMapping("/example/{id}") could be used to update an entire resource with the ID specified in the URL.|**Example**: @PatchMapping("/example/{id}") could be used to update specific fields of a resource with the ID specified in the URL.|
-|**Request Body**: The request body typically contains the full representation of the resource, which will replace the existing resource.|**Request Body**: The request body typically contains a set of changes or a partial representation of the resource, indicating which fields should be updated.|
-|**Use Case**: Replacing an entire user profile, including all fields, even if some have not changed.|**Use Case**: Updating just the email address of a user profile, without altering the other fields like name or address.|
-
-Here's a comparison between @PathVariable and @RequestParam in Spring:
-
-| @PathVariable | @RequestParam   |
-| ----------- | --------- |
-|**Purpose**: Used to extract values from the URI path. It is typically used when the URL contains dynamic values that need to be passed to the controller method.|**Purpose**: Used to extract query parameters from the URL. It is typically used for passing optional or additional parameters in the query string.|
-|**Binding**: Binds a method parameter to a specific path segment in the URL.|**Binding**: Binds a method parameter to a query parameter in the URL.|
-|**Usage**: Commonly used when the URL has a hierarchical structure or when identifying a specific resource (e.g., /users/{id}).|**Usage:** Commonly used for filtering, sorting, or pagination where additional data is passed through the URL (e.g., /users?page=2&sort=asc).|
-|**Example URL**: /users/123 where 123 is the id captured by @PathVariable.|**Example URL**: /users?page=2&sort=asc where page=2 and sort=asc are query parameters captured by @RequestParam.|
-|**Required by Default**: The value bound by @PathVariable is required and must be present in the URL. You can make it optional by using the required attribute set to false.|**Optional by Default:** The value bound by @RequestParam can be optional. You can specify default values using the defaultValue attribute.|
-|**Example:** ``@GetMapping("/users/{id}") public User getUser(@PathVariable("id") Long id) { return userService.getUserById(id); }``|**Example:** ``@GetMapping("/users") public List<User> getUsers(@RequestParam(value = "page", defaultValue = "1") int page, @RequestParam(value = "sort", defaultValue = "asc") String sort) { return userService.getUsers(page, sort); }``|
-
->In summary, @PathVariable is used to capture dynamic values from the URL path, typically identifying specific resources, while @RequestParam is used to capture query parameters from the URL, typically used for additional filters or options.
+>**Note:** Whenever we are importing a package all classes are present in that package are available but not subpackage class will available so if we want to import a sub package class then we have to follow till subpackage class by dot(.).
