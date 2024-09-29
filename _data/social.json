@@ -1,33 +1,27 @@
 [
   {
     "name": "Github",
-    "link": "https://github.com/zerostaticthemes/jekyll-serif-theme",
+    "link": "https://github.com/IamRaviMaurya",
     "image": "images/social/github.svg"
   },
   {
     "name": "Twitter",
-    "link": "https://twitter.com/zerostaticio",
+    "link": "https://x.com/ravimurya04",
     "image": "images/social/twitter.svg"
   },
   {
-      "name": "Facebook",
-      "link": "https://facebook.com",
-      "image": "images/social/facebook.svg"
+    "name": "Facebook",
+    "link": "https://www.facebook.com/profile.php?id=100087751695674",
+    "image": "images/social/facebook.svg"
   },
   {
-      "name": "Email",
-      "link": "mailto:ekyllserif@example.com ",
-      "image": "images/social/email.svg"
+    "name": "Email",
+    "link": "mailto:ravimurya04@gmail.com ",
+    "image": "images/social/email.svg"
   },
   {
-      "name": "Instagram",
-      "link": "https://instagram.com",
-      "image": "images/social/instagram.svg"
-  },
-  {
-      "name": "Discord",
-      "link": "https://discord.com",
-      "image": "images/social/discord.svg"
+    "name": "Instagram",
+    "link": "https://www.instagram.com/ravi_.maurya/",
+    "image": "images/social/instagram.svg"
   }
-
 ]

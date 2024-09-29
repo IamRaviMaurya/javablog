@@ -1,7 +1,7 @@
 ---
-title: "Spring Boot"
+title: "Java OOPs"
 date: 2019-06-16T12:33:46+10:00
-weight: 2
+weight: 1
 ---
 
 Spring Boot is an extension of the Spring Framework that simplify the setup and development of new spring application
