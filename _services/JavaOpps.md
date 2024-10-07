@@ -99,3 +99,9 @@ public class Example {
 If we are using the same package class we don't need the required import statement also java.long package does not need to require import by default it's imported.
 
 >**Note:** Whenever we are importing a package all classes are present in that package are available but not subpackage class will available so if we want to import a sub package class then we have to follow till subpackage class by dot(.).
+
+## What are the main principles of OOP?
+
+- There are four main principle of oops **Encapsulation, Abstraction, Inheritance, And Polymorphism**
+
+### Encapsulation: 
